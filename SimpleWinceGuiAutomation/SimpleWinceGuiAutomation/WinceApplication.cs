@@ -61,7 +61,7 @@ namespace SimpleWinceGuiAutomation
         {
             get 
             {
-                return new ComponentRequester<WinceButton>(ptr => new WinceButton(ptr), e => e.Class.ToLower() == "button", handle);
+                return new ComponentRequester<WinceButton>(ptr => new WinceButton(ptr), e => e.Class.ToLower() == "button" && (e.Style & 0x0002) == 0, handle);
             }
         }
 
