@@ -23,6 +23,17 @@ namespace SimpleWinceGuiAutomation.Tests
         }
 
         [Test]
+        public void TestReadAllTextBoxes()
+        {
+            var application = WinceApplicationFactory.StartFromTypeInApplication<Form1>();
+            var textBoxes = application.MainWindow.TextBoxes.All;
+            Assert.AreEqual(2, textBoxes.Count);
+            Assert.AreEqual("Premier", textBoxes[0].Text);
+            Assert.AreEqual("Second", textBoxes[1].Text);
+            application.Kill();
+        }
+
+        [Test]
         public void TestReadAllCheckBoxes()
         {
             var application = WinceApplicationFactory.StartFromTypeInApplication<Form1>();
