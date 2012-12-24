@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWinceGuiAutomation", "SimpleWinceGuiAutomation\SimpleWinceGuiAutomation.csproj", "{82B40599-1F29-440F-BBA1-FBE74BBA62F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWinceGuiAutomation.Tests", "SimpleWinceGuiAutomation.Tests\SimpleWinceGuiAutomation.Tests.csproj", "{6F29E821-F4BB-4290-9CBA-F57ECAD55974}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWinceGuiAutomation.AppTest", "SimpleWinceGuiAutomation.AppTest\SimpleWinceGuiAutomation.AppTest.csproj", "{290DA2A4-30DB-4C07-AAB5-F6B3DA5517EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82B40599-1F29-440F-BBA1-FBE74BBA62F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82B40599-1F29-440F-BBA1-FBE74BBA62F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82B40599-1F29-440F-BBA1-FBE74BBA62F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82B40599-1F29-440F-BBA1-FBE74BBA62F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F29E821-F4BB-4290-9CBA-F57ECAD55974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F29E821-F4BB-4290-9CBA-F57ECAD55974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F29E821-F4BB-4290-9CBA-F57ECAD55974}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6F29E821-F4BB-4290-9CBA-F57ECAD55974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F29E821-F4BB-4290-9CBA-F57ECAD55974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F29E821-F4BB-4290-9CBA-F57ECAD55974}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{290DA2A4-30DB-4C07-AAB5-F6B3DA5517EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290DA2A4-30DB-4C07-AAB5-F6B3DA5517EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290DA2A4-30DB-4C07-AAB5-F6B3DA5517EE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{290DA2A4-30DB-4C07-AAB5-F6B3DA5517EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290DA2A4-30DB-4C07-AAB5-F6B3DA5517EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290DA2A4-30DB-4C07-AAB5-F6B3DA5517EE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
