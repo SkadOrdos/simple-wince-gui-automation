@@ -20,8 +20,7 @@ namespace SimpleWinceGuiAutomation
 
         public void Click()
         {
-            PInvoke.SendMessage(handle, PInvoke.WM_LBUTTONDOWN, (IntPtr)0x1, (IntPtr)0);
-            PInvoke.SendMessage(handle, PInvoke.WM_LBUTTONUP, (IntPtr)0x1, (IntPtr)0);
+            WindowHelper.Click(handle);
         }
     }
 }
