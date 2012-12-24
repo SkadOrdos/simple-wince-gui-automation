@@ -18,5 +18,11 @@ namespace SimpleWinceGuiAutomation
         {
             PInvoke.SetWindowText(handle, value);
         }
+
+        public static void Click(IntPtr handle)
+        {
+            PInvoke.SendMessage(handle, PInvoke.WM_LBUTTONDOWN, (IntPtr)0x1, (IntPtr)0);
+            PInvoke.SendMessage(handle, PInvoke.WM_LBUTTONUP, (IntPtr)0x1, (IntPtr)0);
+        }
     }
 }
