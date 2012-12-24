@@ -35,7 +35,7 @@ namespace SimpleWinceGuiAutomation.Tests
             application.Kill();
         }
 
-        //[Test]
+        [Test]
         public void TestButton()
         {
             var application = WinceApplicationFactory.StartFromTypeInApplication<Form1>();
