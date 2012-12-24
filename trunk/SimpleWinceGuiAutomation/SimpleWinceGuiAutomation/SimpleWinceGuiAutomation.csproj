@@ -55,17 +55,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComponentRequester.cs" />
-    <Compile Include="Core\PInvoke.cs" />
-    <Compile Include="Core\WinceComponent.cs" />
-    <Compile Include="Core\WinceComponentsFinder.cs" />
+    <Compile Include="Components\Core\ComponentRequester.cs" />
+    <Compile Include="Wince\PInvoke.cs" />
+    <Compile Include="Wince\WinceComponent.cs" />
+    <Compile Include="Wince\WinceComponentsFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WinceApplication.cs" />
+    <Compile Include="Components\WinceApplication.cs" />
     <Compile Include="Components\WinceButton.cs" />
     <Compile Include="Components\WinceCheckBox.cs" />
     <Compile Include="Components\WinceWindow.cs" />
     <Compile Include="WinceApplicationFactory.cs" />
-    <Compile Include="Helpers\WindowHelper.cs" />
+    <Compile Include="Wince\WindowHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>
