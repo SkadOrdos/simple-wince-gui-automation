@@ -93,18 +93,14 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.comboBox1.Items.Add("FirstItem");
-            this.comboBox1.Items.Add("SecondItem");
-            this.comboBox1.Location = new System.Drawing.Point(3, 40);
+            this.comboBox1.Location = new System.Drawing.Point(12, 168);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 22);
             this.comboBox1.TabIndex = 6;
-            this.comboBox1.Text = "FirstText";
             // 
             // comboBox2
             // 
-            this.comboBox2.Location = new System.Drawing.Point(109, 40);
+            this.comboBox2.Location = new System.Drawing.Point(118, 168);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(100, 22);
             this.comboBox2.TabIndex = 7;
