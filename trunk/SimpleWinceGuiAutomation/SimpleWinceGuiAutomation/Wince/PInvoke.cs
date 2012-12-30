@@ -6,9 +6,7 @@ namespace SimpleWinceGuiAutomation.Core
 {
     class PInvoke
     {
-        [DllImport("coredll.dll", SetLastError = true)]
-        private static extern IntPtr FindWindow(string _ClassName, string _WindowName);
-
+#if PocketPC
         [DllImport("coredll.dll", SetLastError = true)]
         public static extern IntPtr GetWindow(IntPtr hwnd, uint relationship);
 
@@ -16,7 +14,7 @@ namespace SimpleWinceGuiAutomation.Core
         public static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
 
         [DllImport("coredll.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-        public static extern int GetClassName(IntPtr hwnd, char[] windowClass, int maxText);
+        public static extern int GetClassName(IntPtr hwnd, StringBuilder windowClass, int maxText);
 
         [DllImport("coredll.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         public static extern int GetWindowTextLength(IntPtr hWnd);
@@ -32,6 +30,31 @@ namespace SimpleWinceGuiAutomation.Core
 
         [DllImport("coredll.dll", SetLastError = true)]
         public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+#else
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern IntPtr GetWindow(IntPtr hwnd, uint relationship);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        public static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+        public static extern int GetWindowTextLength(IntPtr hWnd);
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+        public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
+        [DllImport("coredll.dll")]
+        public static extern bool SetWindowText(IntPtr hwnd, string text);
+
+        [DllImport("coredll.dll")]
+        public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
+
+        [DllImport("coredll.dll", SetLastError = true)]
+        public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+#endif
 
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
