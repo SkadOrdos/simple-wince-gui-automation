@@ -31,7 +31,7 @@ namespace SimpleWinceGuiAutomation.Core
                 StringBuilder chArWindowClass = new StringBuilder(257);
                 PInvoke.GetClassName(hwndCur, chArWindowClass, 256);
                 var strWndClass = chArWindowClass.ToString();
-                strWndClass = strWndClass.Substring(0, strWndClass.IndexOf('\0'));
+                //strWndClass = strWndClass.Substring(0, strWndClass.IndexOf('\0'));
 
                 var length = PInvoke.GetWindowTextLength(hwndCur);
                 var sb = new StringBuilder(length + 1);

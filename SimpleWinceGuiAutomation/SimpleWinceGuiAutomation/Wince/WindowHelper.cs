@@ -21,8 +21,13 @@ namespace SimpleWinceGuiAutomation
 
         public static void Click(IntPtr handle)
         {
+#if PocketPC
             PInvoke.SendMessage(handle, PInvoke.WM_LBUTTONDOWN, (IntPtr)0x1, (IntPtr)0);
             PInvoke.SendMessage(handle, PInvoke.WM_LBUTTONUP, (IntPtr)0x1, (IntPtr)0);
+#else
+            const int BM_CLICK = 0x00F5;
+            PInvoke.SendMessage(handle, BM_CLICK, IntPtr.Zero, IntPtr.Zero);
+#endif
         }
     }
 }
