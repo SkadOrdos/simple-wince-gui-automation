@@ -46,13 +46,13 @@ namespace SimpleWinceGuiAutomation.Core
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
-        [DllImport("coredll.dll")]
+        [DllImport("user32.dll")]
         public static extern bool SetWindowText(IntPtr hwnd, string text);
 
-        [DllImport("coredll.dll")]
+        [DllImport("user32.dll")]
         public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
 
-        [DllImport("coredll.dll", SetLastError = true)]
+        [DllImport("user32.dll", SetLastError = true)]
         public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 #endif
 
