@@ -42,5 +42,20 @@ namespace SimpleWinceGuiAutomation.Tests
             var comboBoxes = application.MainWindow.ComboBoxes.All;
             Assert.AreEqual(2, comboBoxes.Count);
         }
+
+        [Test]
+        public void TestReadAllContainers()
+        {
+            var pictureBoxes = application.MainWindow.Containers.All;
+            Assert.AreEqual(2, pictureBoxes.Count);
+        }
+
+        [Test]
+        public void TestReadAllLabels()
+        {
+            var labels = application.MainWindow.Labels.All;
+            Assert.AreEqual(1, labels.Count);
+            Assert.AreEqual("A label", labels[0].Text);
+        }
     }
 }
