@@ -7,9 +7,6 @@ namespace SimpleWinceGuiAutomation.Core
 {
     class WinceComponentsFinder
     {
-        public static int BM_GETCHECK = 0xF0;
-        public static int BM_SETCHECK = 0xF0;
-
         public List<WinComponent> ListChilds(IntPtr handle)
         {
             var childs = new List<WinComponent>();
