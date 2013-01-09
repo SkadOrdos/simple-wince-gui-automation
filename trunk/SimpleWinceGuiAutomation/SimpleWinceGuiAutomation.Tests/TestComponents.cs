@@ -57,5 +57,13 @@ namespace SimpleWinceGuiAutomation.Tests
             Assert.AreEqual(1, labels.Count);
             Assert.AreEqual("A label", labels[0].Text);
         }
+
+        [Test]
+        public void TestReadAllRadios()
+        {
+            var radios = application.MainWindow.Radios.All;
+            Assert.AreEqual(2, radios.Count);
+            Assert.AreEqual("A label", radios[0].Text);
+        }
     }
 }

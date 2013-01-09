@@ -13,6 +13,9 @@ namespace SimpleWinceGuiAutomation.Core
         [DllImport("coredll.dll", SetLastError = true)]
         public static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
 
+        [DllImport("coredll.dll", SetLastError = true)]
+        public static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, string lParam);
+
         [DllImport("coredll.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         public static extern int GetClassName(IntPtr hwnd, StringBuilder windowClass, int maxText);
 
@@ -71,6 +74,7 @@ namespace SimpleWinceGuiAutomation.Core
         public static int WM_LBUTTONUP = 0x0202;
         public static int BM_GETCHECK = 0x00F0;
         public static int BM_SETCHECK = 0x00F1;
+        public static int WM_SETTEXT = 0x000C;
 
         [Flags]
         public enum GetWindowFlags

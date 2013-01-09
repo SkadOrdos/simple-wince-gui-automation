@@ -48,7 +48,7 @@
     <Reference Include="mscorlib" />
     <Reference Include="nunitlite, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Lib\CF\nunitlite.dll</HintPath>
+      <HintPath>.\nunitlite.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,6 +61,9 @@
   <ItemGroup>
     <Compile Include="ButtonsTest.cs" />
     <Compile Include="CheckBoxesTest.cs" />
+    <Compile Include="ComboBoxesTest.cs" />
+    <Compile Include="RadiosTest.cs" />
+    <Compile Include="LabelsTest.cs" />
     <Compile Include="TextBoxesTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

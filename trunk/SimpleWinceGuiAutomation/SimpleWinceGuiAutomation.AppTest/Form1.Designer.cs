@@ -42,6 +42,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // button1
@@ -54,7 +56,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(90, 14);
+            this.button2.Location = new System.Drawing.Point(90, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(97, 20);
             this.button2.TabIndex = 1;
@@ -63,7 +65,7 @@
             // 
             // checkBox1
             // 
-            this.checkBox1.Location = new System.Drawing.Point(12, 68);
+            this.checkBox1.Location = new System.Drawing.Point(3, 80);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(129, 23);
             this.checkBox1.TabIndex = 2;
@@ -97,6 +99,9 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Items.Add("First");
+            this.comboBox1.Items.Add("Second");
+            this.comboBox1.Items.Add("Third");
             this.comboBox1.Location = new System.Drawing.Point(12, 168);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 22);
@@ -118,7 +123,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(20, 40);
+            this.label1.Location = new System.Drawing.Point(12, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 20);
             this.label1.Text = "A label";
@@ -129,12 +134,32 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(54, 44);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(12, 45);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(100, 29);
+            this.radioButton1.TabIndex = 8;
+            this.radioButton1.Text = "First Radio";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Location = new System.Drawing.Point(118, 45);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(119, 29);
+            this.radioButton2.TabIndex = 9;
+            this.radioButton2.TabStop = false;
+            this.radioButton2.Text = "Second Radio";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -166,6 +191,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
 
