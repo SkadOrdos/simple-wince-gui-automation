@@ -112,7 +112,7 @@ namespace SimpleWinceGuiAutomation
 
         public void Click()
         {
-            WindowHelper.Click(handle);
+            WindowHelper.Click(ptr);
         }
     }
 
