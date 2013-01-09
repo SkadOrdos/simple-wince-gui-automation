@@ -3,7 +3,7 @@ using SimpleWinceGuiAutomation.AppTest;
 
 namespace SimpleWinceGuiAutomation.Tests
 {
-    [TestFixture]
+    //[TestFixture]
     public class ComboBoxesTest : WinceTest
     {
         [Test]

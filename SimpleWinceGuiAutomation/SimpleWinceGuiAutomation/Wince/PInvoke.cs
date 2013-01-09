@@ -86,5 +86,10 @@ namespace SimpleWinceGuiAutomation.Core
             GW_OWNER = 4,
             GW_CHILD = 5,
         }
+
+
+        [DllImport("coredll.dll", SetLastError = true)]
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, int
+        wParam, StringBuilder lParam);
     }
 }
