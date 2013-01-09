@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using SimpleWinceGuiAutomation.Core;
 
 namespace SimpleWinceGuiAutomation
@@ -157,9 +158,31 @@ namespace SimpleWinceGuiAutomation
         }
 
 
+        uint CB_GETLBTEXT = 0x0148;
+        private int CB_GETCOUNT = 0x0146;
+        int CB_SETCURSEL = 0x014E;
+
+        private string GetComboItem(int index)
+        {
+            StringBuilder ssb = new StringBuilder(256, 256);
+            PInvoke.SendMessage(ptr, CB_GETLBTEXT, index, ssb);
+            return ssb.ToString();
+        }
+
+
         public void Select(string value)
         {
-            PInvoke.SendMessage(ptr, PInvoke.WM_SETTEXT, (IntPtr)0x0, value);
+            IntPtr ptr = PInvoke.SendMessage(this.ptr, CB_GETCOUNT, (IntPtr)0, (IntPtr)0);
+            for (var i = 0; i < ptr.ToInt32(); i++)
+            {
+                var item = GetComboItem(i);
+                if (item == value)
+                {
+                    PInvoke.SendMessage(this.ptr, CB_SETCURSEL, (IntPtr)i, (IntPtr)0);
+                }
+            }
+
+            
         }
     }
 }
