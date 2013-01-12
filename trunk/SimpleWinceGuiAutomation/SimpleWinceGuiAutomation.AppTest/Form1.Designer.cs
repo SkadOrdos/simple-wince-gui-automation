@@ -44,6 +44,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // button1
@@ -119,7 +121,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 196);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 25);
             // 
             // label1
             // 
@@ -132,7 +134,7 @@
             // 
             this.panel1.Location = new System.Drawing.Point(118, 202);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(54, 44);
+            this.panel1.Size = new System.Drawing.Size(54, 19);
             // 
             // radioButton1
             // 
@@ -152,12 +154,32 @@
             this.radioButton2.TabStop = false;
             this.radioButton2.Text = "Second Radio";
             // 
+            // listBox1
+            // 
+            this.listBox1.Items.Add("First");
+            this.listBox1.Items.Add("Second");
+            this.listBox1.Location = new System.Drawing.Point(15, 232);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(100, 30);
+            this.listBox1.TabIndex = 13;
+            // 
+            // listBox2
+            // 
+            this.listBox2.Items.Add("Another First");
+            this.listBox2.Items.Add("Another Second");
+            this.listBox2.Location = new System.Drawing.Point(121, 232);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(100, 30);
+            this.listBox2.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.panel1);
@@ -193,6 +215,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }
 

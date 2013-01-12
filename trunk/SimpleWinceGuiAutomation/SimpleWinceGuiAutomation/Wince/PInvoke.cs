@@ -88,8 +88,16 @@ namespace SimpleWinceGuiAutomation.Core
         }
 
 
-        [DllImport("coredll.dll", SetLastError = true)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, int
+
+
+        [DllImport("coredll.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+        public static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, StringBuilder lParam);
+        [DllImport("coredll.dll", CharSet = CharSet.Auto, SetLastError =
+false, EntryPoint = "SendMessage")]
+        public static extern IntPtr SendRefMessage(IntPtr hWnd, uint Msg, int
         wParam, StringBuilder lParam);
+
+        [DllImport("coredll")]
+        public static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, byte[] lParam);
     }
 }

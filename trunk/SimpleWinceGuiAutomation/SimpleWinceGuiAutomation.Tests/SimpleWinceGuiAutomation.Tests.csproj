@@ -62,6 +62,7 @@
     <Compile Include="ButtonsTest.cs" />
     <Compile Include="CheckBoxesTest.cs" />
     <Compile Include="ComboBoxesTest.cs" />
+    <Compile Include="ListBoxesTest.cs" />
     <Compile Include="RadiosTest.cs" />
     <Compile Include="LabelsTest.cs" />
     <Compile Include="TextBoxesTest.cs" />
