@@ -94,14 +94,4 @@ namespace SimpleWinceGuiAutomation
             return c.Class.ToLower().Equals("static");
         }
     }
-
-    public class WinceContainer
-    {
-        private readonly IntPtr ptr;
-
-        public WinceContainer(IntPtr ptr)
-        {
-            this.ptr = ptr;
-        }
-    }
 }
