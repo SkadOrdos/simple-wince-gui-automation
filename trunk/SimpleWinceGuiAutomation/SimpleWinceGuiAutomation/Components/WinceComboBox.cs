@@ -44,8 +44,6 @@ namespace SimpleWinceGuiAutomation
                     PInvoke.SendMessage(this.ptr, CB_SETCURSEL, (IntPtr)i, (IntPtr)0);
                 }
             }
-
-            
         }
     }
 }

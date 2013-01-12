@@ -16,12 +16,12 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestSelect()
         {
-            //var comboBox = application.MainWindow.ComboBoxes.All[0];
-            //Assert.AreEqual("", comboBox.Text);
-            //comboBox.Select("First");
-            //Assert.AreEqual("First", comboBox.Text);
-            //comboBox.Select("Non existing");
-            //Assert.AreEqual("", comboBox.Text);
+            var listBox = application.MainWindow.ListBoxes.All[0];
+            Assert.AreEqual("", listBox.Text);
+            listBox.Select("First");
+            Assert.AreEqual("First", listBox.Text);
+            listBox.Select("Non existing");
+            Assert.AreEqual("", listBox.Text);
         }
     }
 }
