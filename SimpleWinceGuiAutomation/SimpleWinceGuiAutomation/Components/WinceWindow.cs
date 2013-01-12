@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using SimpleWinceGuiAutomation.Core;
 
 namespace SimpleWinceGuiAutomation
@@ -80,6 +79,11 @@ namespace SimpleWinceGuiAutomation
             get { return new ComponentRequester<WinceRadio>(ptr => new WinceRadio(ptr), isRadio, handle); }
         }
 
+        public ComponentRequester<WinceListBox> ListBoxes
+        {
+            get { return new ComponentRequester<WinceListBox>(ptr => new WinceListBox(ptr), e => e.Class.ToLower().Contains("listbox"), handle); }
+        }
+
         private bool isContainer(WinComponent c)
         {
             return c.Class.ToLower().Equals("#netcf_agl_base_");
@@ -91,48 +95,6 @@ namespace SimpleWinceGuiAutomation
         }
     }
 
-    public class WinceRadio
-    {
-        private readonly IntPtr ptr;
-
-        public WinceRadio(IntPtr ptr)
-        {
-            this.ptr = ptr;
-        }
-
-        public String Text
-        {
-            get { return WindowHelper.GetText(ptr); }
-            set { WindowHelper.SetText(ptr, value); }
-        }
-
-        public bool Checked
-        {
-            get { return (int)PInvoke.SendMessage(ptr, PInvoke.BM_GETCHECK, (IntPtr)0x0, (IntPtr)0) == 1; }
-        }
-
-        public void Click()
-        {
-            WindowHelper.Click(ptr);
-        }
-    }
-
-    public class WinceLabel
-    {
-        private readonly IntPtr ptr;
-
-        public WinceLabel(IntPtr ptr)
-        {
-            this.ptr = ptr;
-        }
-
-        public String Text
-        {
-            get { return WindowHelper.GetText(ptr); }
-            set { WindowHelper.SetText(ptr, value); }
-        }
-    }
-
     public class WinceContainer
     {
         private readonly IntPtr ptr;
@@ -140,49 +102,6 @@ namespace SimpleWinceGuiAutomation
         public WinceContainer(IntPtr ptr)
         {
             this.ptr = ptr;
-        }
-    }
-
-    public class WinceComboBox
-    {
-        private readonly IntPtr ptr;
-
-        public WinceComboBox(IntPtr ptr)
-        {
-            this.ptr = ptr;
-        }
-
-        public String Text
-        {
-            get { return WindowHelper.GetText(ptr); }
-        }
-
-
-        uint CB_GETLBTEXT = 0x0148;
-        private int CB_GETCOUNT = 0x0146;
-        int CB_SETCURSEL = 0x014E;
-
-        private string GetComboItem(int index)
-        {
-            StringBuilder ssb = new StringBuilder(256, 256);
-            PInvoke.SendMessage(ptr, CB_GETLBTEXT, index, ssb);
-            return ssb.ToString();
-        }
-
-
-        public void Select(string value)
-        {
-            IntPtr ptr = PInvoke.SendMessage(this.ptr, CB_GETCOUNT, (IntPtr)0, (IntPtr)0);
-            for (var i = 0; i < ptr.ToInt32(); i++)
-            {
-                var item = GetComboItem(i);
-                if (item == value)
-                {
-                    PInvoke.SendMessage(this.ptr, CB_SETCURSEL, (IntPtr)i, (IntPtr)0);
-                }
-            }
-
-            
         }
     }
 }

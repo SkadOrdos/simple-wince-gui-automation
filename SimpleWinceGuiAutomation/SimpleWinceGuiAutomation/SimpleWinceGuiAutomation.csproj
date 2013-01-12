@@ -55,6 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\WinceComboBox.cs" />
+    <Compile Include="Components\WinceLabel.cs" />
+    <Compile Include="Components\WinceListBox.cs" />
+    <Compile Include="Components\WinceRadio.cs" />
     <Compile Include="Core\ComponentRequester.cs" />
     <Compile Include="Components\WinceTextBox.cs" />
     <Compile Include="Core\WinComponent.cs" />
