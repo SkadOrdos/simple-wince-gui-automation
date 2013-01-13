@@ -73,6 +73,12 @@ namespace SimpleWinceGuiAutomation.Wince
         [DllImport("coredll.dll", SetLastError = true)]
         public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
+        [DllImport("coredll.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool IsWindowEnabled(IntPtr hWnd);
+
+        [DllImport("coredll.dll")]
+        public static extern bool IsWindowVisible(IntPtr hwnd);
 
         public static IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, StringBuilder lParam)
         {
