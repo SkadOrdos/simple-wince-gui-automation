@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SimpleWinceGuiAutomation.Core;
 
-namespace SimpleWinceGuiAutomation
+namespace SimpleWinceGuiAutomation.Core
 {
     public class ComponentRequester<TComponent>
     {

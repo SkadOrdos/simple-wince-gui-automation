@@ -1,8 +1,7 @@
 ﻿using System;
 using SimpleWinceGuiAutomation.Core;
-using SimpleWinceGuiAutomation.Components;
 
-namespace SimpleWinceGuiAutomation
+namespace SimpleWinceGuiAutomation.Components
 {
     public class WinceRadio : WinceComponent
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace SimpleWinceGuiAutomation
+namespace SimpleWinceGuiAutomation.Components
 {
     public class WinceApplication
     {

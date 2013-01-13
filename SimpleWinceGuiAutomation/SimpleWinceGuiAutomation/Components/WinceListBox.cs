@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SimpleWinceGuiAutomation.Components;
 using SimpleWinceGuiAutomation.Core;
 
-namespace SimpleWinceGuiAutomation
+namespace SimpleWinceGuiAutomation.Components
 {
     public class WinceListBox : WinceComponent
     {
-        private int LB_GETCOUNT = 0x018B;
-        private int LB_GETCURSEL = 0x0188;
-
-        private int LB_GETTEXT = 0x0189;
-        private int LB_GETTEXTLEN = 0x018A;
-        private int LB_SETCURSEL = 0x0186;
+        private const int LB_GETCOUNT = 0x018B;
+        private const int LB_GETCURSEL = 0x0188;
+        private const int LB_GETTEXT = 0x0189;
+        private const int LB_GETTEXTLEN = 0x018A;
+        private const int LB_SETCURSEL = 0x0186;
 
         public WinceListBox(IntPtr ptr) : base(ptr) { }
 

@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SimpleWinceGuiAutomation.Components;
 using SimpleWinceGuiAutomation.Core;
 
-namespace SimpleWinceGuiAutomation
+namespace SimpleWinceGuiAutomation.Components
 {
     public class WinceComboBox : WinceComponent
     {
-        private int CB_GETCOUNT = 0x0146;
-
-
-        private int CB_GETLBTEXT = 0x0148;
-        private int CB_GETLBTEXTLEN = 0x149;
-        private int CB_SETCURSEL = 0x014E;
+        private const int CB_GETCOUNT = 0x0146;
+        private const int CB_GETLBTEXT = 0x0148;
+        private const int CB_GETLBTEXTLEN = 0x149;
+        private const int CB_SETCURSEL = 0x014E;
 
         public WinceComboBox(IntPtr ptr) : base(ptr) { }
 
@@ -40,7 +37,7 @@ namespace SimpleWinceGuiAutomation
         {
             int size = PInvoke.SendMessage(Handle, CB_GETLBTEXTLEN, new IntPtr(index), new IntPtr(0)).ToInt32();
             var ssb = new StringBuilder(size);
-            int getSize = PInvoke.SendMessage(Handle, CB_GETLBTEXT, new IntPtr(index), ssb).ToInt32();
+            PInvoke.SendMessage(Handle, CB_GETLBTEXT, new IntPtr(index), ssb).ToInt32();
             return ssb.ToString();
         }
 

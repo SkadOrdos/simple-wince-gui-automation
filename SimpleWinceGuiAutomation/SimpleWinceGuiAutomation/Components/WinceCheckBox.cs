@@ -1,8 +1,7 @@
 ﻿using System;
-using SimpleWinceGuiAutomation.Components;
 using SimpleWinceGuiAutomation.Core;
 
-namespace SimpleWinceGuiAutomation
+namespace SimpleWinceGuiAutomation.Components
 {
     public class WinceCheckBox : WinceComponent
     {

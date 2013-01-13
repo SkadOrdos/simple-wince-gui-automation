@@ -2,11 +2,11 @@
 
 namespace SimpleWinceGuiAutomation.Components
 {
-    public class WinceComponent
+    public abstract class WinceComponent
     {
         protected IntPtr Handle { get; private set; }
 
-        public WinceComponent(IntPtr handle)
+        protected WinceComponent(IntPtr handle)
         {
             Handle = handle;
         }
