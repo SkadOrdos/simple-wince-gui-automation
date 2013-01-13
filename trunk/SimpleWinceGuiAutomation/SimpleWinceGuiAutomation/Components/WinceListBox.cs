@@ -8,7 +8,6 @@ namespace SimpleWinceGuiAutomation
 {
     public class WinceListBox : WinceComponent
     {
-        private readonly IntPtr ptr;
         private int LB_GETCOUNT = 0x018B;
         private int LB_GETCURSEL = 0x0188;
 
@@ -20,7 +19,7 @@ namespace SimpleWinceGuiAutomation
 
         public int SelectedItem
         {
-            get { return PInvoke.SendMessage(ptr, LB_GETCURSEL, (IntPtr) 0, (IntPtr) 0).ToInt32(); }
+            get { return PInvoke.SendMessage(Handle, LB_GETCURSEL, (IntPtr) 0, (IntPtr) 0).ToInt32(); }
         }
 
         public List<String> Items
@@ -28,7 +27,7 @@ namespace SimpleWinceGuiAutomation
             get
             {
                 var items = new List<string>();
-                IntPtr ptr = PInvoke.SendMessage(this.ptr, LB_GETCOUNT, (IntPtr) 0, (IntPtr) 0);
+                IntPtr ptr = PInvoke.SendMessage(Handle, LB_GETCOUNT, (IntPtr)0, (IntPtr)0);
                 for (int i = 0; i < ptr.ToInt32(); i++)
                 {
                     items.Add(GetListItem(i));
@@ -39,9 +38,9 @@ namespace SimpleWinceGuiAutomation
 
         private string GetListItem(int index)
         {
-            int size = PInvoke.SendMessage(ptr, LB_GETTEXTLEN, new IntPtr(index), new IntPtr(0)).ToInt32();
+            int size = PInvoke.SendMessage(Handle, LB_GETTEXTLEN, new IntPtr(index), new IntPtr(0)).ToInt32();
             var sb = new StringBuilder(size);
-            PInvoke.SendMessage(ptr, LB_GETTEXT, new IntPtr(index), sb);
+            PInvoke.SendMessage(Handle, LB_GETTEXT, new IntPtr(index), sb);
             return sb.ToString();
         }
 
@@ -52,7 +51,7 @@ namespace SimpleWinceGuiAutomation
             {
                 if (value == items[i])
                 {
-                    PInvoke.SendMessage(ptr, LB_SETCURSEL, (IntPtr) i, (IntPtr) 0);
+                    PInvoke.SendMessage(Handle, LB_SETCURSEL, (IntPtr)i, (IntPtr)0);
                 }
             }
         }
