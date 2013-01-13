@@ -11,10 +11,6 @@ namespace SimpleWinceGuiAutomation.Components
             Handle = handle;
         }
 
-        public String Text
-        {
-            get { return WindowHelper.GetText(Handle); }
-        }
 
         public WindowHelper.Size Size
         {

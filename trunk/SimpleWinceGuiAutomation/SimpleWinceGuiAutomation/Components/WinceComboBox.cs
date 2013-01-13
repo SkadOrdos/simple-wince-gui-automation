@@ -17,6 +17,11 @@ namespace SimpleWinceGuiAutomation
 
         public WinceComboBox(IntPtr ptr) : base(ptr) { }
 
+        public String Text
+        {
+            get { return WindowHelper.GetText(Handle); }
+        }
+
         public List<String> Items
         {
             get
