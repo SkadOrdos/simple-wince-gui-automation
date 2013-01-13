@@ -14,6 +14,7 @@ namespace SimpleWinceGuiAutomation.Tests
             Assert.AreEqual(2, buttons.Count);
             Assert.AreEqual("Bouton1", buttons[0].Text);
             Assert.AreEqual("OtherButton", buttons[1].Text);
+            Assert.AreEqual(20, buttons[0].Height);
         }
 
         [Test]

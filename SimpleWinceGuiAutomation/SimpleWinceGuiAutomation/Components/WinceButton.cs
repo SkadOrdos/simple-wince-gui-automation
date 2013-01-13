@@ -18,6 +18,15 @@ namespace SimpleWinceGuiAutomation
             set { WindowHelper.SetText(handle, value); }
         }
 
+        public int Height
+        {
+            get
+            {
+                var rect = WindowHelper.GetRect(handle);
+                return rect.Bottom - rect.Top;
+            }
+        }
+
         public void Click()
         {
             WindowHelper.Click(handle);

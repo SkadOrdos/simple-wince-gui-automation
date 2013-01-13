@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Text;
 using SimpleWinceGuiAutomation.Core;
 
@@ -28,6 +29,27 @@ namespace SimpleWinceGuiAutomation
             const int BM_CLICK = 0x00F5;
             PInvoke.SendMessage(handle, BM_CLICK, IntPtr.Zero, IntPtr.Zero);
 #endif
+        }
+
+        public struct RECT
+        {
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
+        }
+
+        [DllImport("coredll.dll")]
+        private static extern bool GetWindowRect(IntPtr hWnd, out RECT rect);
+
+        public static RECT GetRect(IntPtr handle)
+        {
+            RECT r;
+            if (!GetWindowRect(handle, out r))
+            {
+                throw new Exception("");
+            }
+            return r;
         }
     }
 }
