@@ -12,39 +12,14 @@ namespace SimpleWinceGuiAutomation
             this.handle = handle;
         }
 
-        static Boolean isCheckBox(WinComponent component)
-        {
-            if (!component.Class.ToLower().Contains("button"))
-            {
-                return false;
-            }
-            var style = component.Style;
-            int BS_TYPEMASK = 0x0000000F;
-            int BS_CHECKBOX = 0x2;
-            int BS_AUTOCHECKBOX = 0x3;
-            style = style & BS_TYPEMASK;
-            return (style == BS_AUTOCHECKBOX || style == BS_CHECKBOX);
-        }
-
-        static Boolean isRadio(WinComponent component)
-        {
-            if (!component.Class.ToLower().Contains("button"))
-            {
-                return false;
-            }
-            var style = component.Style;
-            int BS_TYPEMASK = 0x0000000F;
-            int BS_RADIOBUTTON = 0x0004;
-            int BS_AUTORADIOBUTTON = 0x0009;
-            style = style & BS_TYPEMASK;
-            return (style == BS_RADIOBUTTON || style == BS_AUTORADIOBUTTON);
-        }
-
         public ComponentRequester<WinceButton> Buttons
         {
-            get 
+            get
             {
-                return new ComponentRequester<WinceButton>(ptr => new WinceButton(ptr), e => e.Class.ToLower().Contains("button") && !isCheckBox(e) && !isRadio(e), handle);
+                return new ComponentRequester<WinceButton>(ptr => new WinceButton(ptr),
+                                                           e =>
+                                                           e.Class.ToLower().Contains("button") && !isCheckBox(e) &&
+                                                           !isRadio(e), handle);
             }
         }
 
@@ -55,12 +30,20 @@ namespace SimpleWinceGuiAutomation
 
         public ComponentRequester<WinceTextBox> TextBoxes
         {
-            get { return new ComponentRequester<WinceTextBox>(ptr => new WinceTextBox(ptr), e => e.Class.ToLower().Contains("edit"), handle); }
+            get
+            {
+                return new ComponentRequester<WinceTextBox>(ptr => new WinceTextBox(ptr),
+                                                            e => e.Class.ToLower().Contains("edit"), handle);
+            }
         }
 
         public ComponentRequester<WinceComboBox> ComboBoxes
         {
-            get { return new ComponentRequester<WinceComboBox>(ptr => new WinceComboBox(ptr), e => e.Class.ToLower().Contains("combobox"), handle); }
+            get
+            {
+                return new ComponentRequester<WinceComboBox>(ptr => new WinceComboBox(ptr),
+                                                             e => e.Class.ToLower().Contains("combobox"), handle);
+            }
         }
 
         public ComponentRequester<WinceContainer> Containers
@@ -81,7 +64,39 @@ namespace SimpleWinceGuiAutomation
 
         public ComponentRequester<WinceListBox> ListBoxes
         {
-            get { return new ComponentRequester<WinceListBox>(ptr => new WinceListBox(ptr), e => e.Class.ToLower().Contains("listbox"), handle); }
+            get
+            {
+                return new ComponentRequester<WinceListBox>(ptr => new WinceListBox(ptr),
+                                                            e => e.Class.ToLower().Contains("listbox"), handle);
+            }
+        }
+
+        private static Boolean isCheckBox(WinComponent component)
+        {
+            if (!component.Class.ToLower().Contains("button"))
+            {
+                return false;
+            }
+            int style = component.Style;
+            int BS_TYPEMASK = 0x0000000F;
+            int BS_CHECKBOX = 0x2;
+            int BS_AUTOCHECKBOX = 0x3;
+            style = style & BS_TYPEMASK;
+            return (style == BS_AUTOCHECKBOX || style == BS_CHECKBOX);
+        }
+
+        private static Boolean isRadio(WinComponent component)
+        {
+            if (!component.Class.ToLower().Contains("button"))
+            {
+                return false;
+            }
+            int style = component.Style;
+            int BS_TYPEMASK = 0x0000000F;
+            int BS_RADIOBUTTON = 0x0004;
+            int BS_AUTORADIOBUTTON = 0x0009;
+            style = style & BS_TYPEMASK;
+            return (style == BS_RADIOBUTTON || style == BS_AUTORADIOBUTTON);
         }
 
         private bool isContainer(WinComponent c)

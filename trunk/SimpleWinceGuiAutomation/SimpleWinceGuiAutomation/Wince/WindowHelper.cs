@@ -5,7 +5,7 @@ using SimpleWinceGuiAutomation.Core;
 
 namespace SimpleWinceGuiAutomation
 {
-    static class WindowHelper
+    internal static class WindowHelper
     {
         public static String GetText(IntPtr handle)
         {
@@ -23,20 +23,12 @@ namespace SimpleWinceGuiAutomation
         public static void Click(IntPtr handle)
         {
 #if PocketPC
-            PInvoke.SendMessage(handle, PInvoke.WM_LBUTTONDOWN, (IntPtr)0x1, (IntPtr)0);
-            PInvoke.SendMessage(handle, PInvoke.WM_LBUTTONUP, (IntPtr)0x1, (IntPtr)0);
+            PInvoke.SendMessage(handle, PInvoke.WM_LBUTTONDOWN, (IntPtr) 0x1, (IntPtr) 0);
+            PInvoke.SendMessage(handle, PInvoke.WM_LBUTTONUP, (IntPtr) 0x1, (IntPtr) 0);
 #else
             const int BM_CLICK = 0x00F5;
             PInvoke.SendMessage(handle, BM_CLICK, IntPtr.Zero, IntPtr.Zero);
 #endif
-        }
-
-        public struct RECT
-        {
-            public int Left;
-            public int Top;
-            public int Right;
-            public int Bottom;
         }
 
         [DllImport("coredll.dll")]
@@ -51,5 +43,17 @@ namespace SimpleWinceGuiAutomation
             }
             return r;
         }
+
+        #region Nested type: RECT
+
+        public struct RECT
+        {
+            public int Bottom;
+            public int Left;
+            public int Right;
+            public int Top;
+        }
+
+        #endregion
     }
 }

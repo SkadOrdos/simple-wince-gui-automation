@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using SimpleWinceGuiAutomation.AppTest;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace SimpleWinceGuiAutomation.Tests
 {
@@ -9,7 +9,7 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestClick()
         {
-            var label = application.MainWindow.Labels.WithText("A label");
+            WinceLabel label = application.MainWindow.Labels.WithText("A label");
             Assert.AreEqual("A label", label.Text);
             label.Text = "New Label Text";
             Assert.AreEqual("New Label Text", label.Text);
@@ -18,7 +18,7 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestReadAllLabels()
         {
-            var labels = application.MainWindow.Labels.All;
+            List<WinceLabel> labels = application.MainWindow.Labels.All;
             Assert.AreEqual(1, labels.Count);
             Assert.AreEqual("A label", labels[0].Text);
         }

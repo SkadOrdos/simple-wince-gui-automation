@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace SimpleWinceGuiAutomation.Tests
@@ -12,7 +9,7 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestReadAllContainers()
         {
-            var pictureBoxes = application.MainWindow.Containers.All;
+            List<WinceContainer> pictureBoxes = application.MainWindow.Containers.All;
             Assert.AreEqual(2, pictureBoxes.Count);
         }
     }

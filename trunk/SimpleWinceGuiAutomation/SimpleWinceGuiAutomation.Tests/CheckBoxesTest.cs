@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using SimpleWinceGuiAutomation.AppTest;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace SimpleWinceGuiAutomation.Tests
 {
@@ -9,7 +9,7 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestCheck()
         {
-            var checkBox = application.MainWindow.CheckBoxes.WithText("My checkbox");
+            WinceCheckBox checkBox = application.MainWindow.CheckBoxes.WithText("My checkbox");
             Assert.AreEqual("My checkbox", checkBox.Text);
             Assert.IsFalse(checkBox.Checked);
             checkBox.Checked = true;
@@ -19,7 +19,7 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestReadAllCheckBoxes()
         {
-            var checkBoxes = application.MainWindow.CheckBoxes.All;
+            List<WinceCheckBox> checkBoxes = application.MainWindow.CheckBoxes.All;
             Assert.AreEqual(2, checkBoxes.Count);
             Assert.IsFalse(checkBoxes[0].Checked);
             Assert.AreEqual("My checkbox", checkBoxes[0].Text);

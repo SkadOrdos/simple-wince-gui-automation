@@ -1,5 +1,4 @@
 ﻿using System;
-using SimpleWinceGuiAutomation.Core;
 
 namespace SimpleWinceGuiAutomation
 {
@@ -15,14 +14,13 @@ namespace SimpleWinceGuiAutomation
         public String Text
         {
             get { return WindowHelper.GetText(handle); }
-            set { WindowHelper.SetText(handle, value); }
         }
 
         public int Height
         {
             get
             {
-                var rect = WindowHelper.GetRect(handle);
+                WindowHelper.RECT rect = WindowHelper.GetRect(handle);
                 return rect.Bottom - rect.Top;
             }
         }

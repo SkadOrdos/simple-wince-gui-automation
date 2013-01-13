@@ -12,7 +12,8 @@ namespace SimpleWinceGuiAutomation
 
         private Func<WinComponent, bool> isKind;
 
-        public ComponentRequester(Func<IntPtr, TComponent> componentFactory, Func<WinComponent, bool> isKind, IntPtr handle)
+        public ComponentRequester(Func<IntPtr, TComponent> componentFactory, Func<WinComponent, bool> isKind,
+                                  IntPtr handle)
         {
             this.componentFactory = componentFactory;
             this.isKind = isKind;
@@ -23,24 +24,24 @@ namespace SimpleWinceGuiAutomation
         {
             get
             {
-                var childs = new WinceComponentsFinder().ListChilds(handle);
+                List<WinComponent> childs = new WinceComponentsFinder().ListChilds(handle);
                 return (from e in childs
                         where isKind(e)
-                        orderby e.Top, e.Left
+                        orderby e.Top , e.Left
                         select componentFactory(e.Handle)).ToList();
             }
         }
 
         public List<TComponent> WithTexts(String text)
         {
-            var childs = new WinceComponentsFinder().ListChilds(handle);
+            List<WinComponent> childs = new WinceComponentsFinder().ListChilds(handle);
             return (from e in childs
                     where callIsKind(e) && text == e.Text
-                    orderby e.Top, e.Left
+                    orderby e.Top , e.Left
                     select componentFactory(e.Handle)).ToList();
         }
 
-        bool callIsKind(WinComponent e)
+        private bool callIsKind(WinComponent e)
         {
             return isKind(e);
         }
@@ -49,7 +50,5 @@ namespace SimpleWinceGuiAutomation
         {
             return WithTexts(text).First();
         }
-
-
     }
 }
