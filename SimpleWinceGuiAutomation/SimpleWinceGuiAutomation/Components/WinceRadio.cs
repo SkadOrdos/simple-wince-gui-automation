@@ -20,7 +20,7 @@ namespace SimpleWinceGuiAutomation
 
         public bool Checked
         {
-            get { return (int)PInvoke.SendMessage(ptr, PInvoke.BM_GETCHECK, (IntPtr)0x0, (IntPtr)0) == 1; }
+            get { return (int) PInvoke.SendMessage(ptr, PInvoke.BM_GETCHECK, (IntPtr) 0x0, (IntPtr) 0) == 1; }
         }
 
         public void Click()

@@ -14,8 +14,8 @@ namespace SimpleWinceGuiAutomation
 
         public bool Checked
         {
-            get { return (int)PInvoke.SendMessage(handle, PInvoke.BM_GETCHECK, (IntPtr)0x0, (IntPtr)0) == 1; }
-            set { PInvoke.SendMessage(handle, PInvoke.BM_SETCHECK, (IntPtr)(value ? 1 : 0), (IntPtr)0); }
+            get { return (int) PInvoke.SendMessage(handle, PInvoke.BM_GETCHECK, (IntPtr) 0x0, (IntPtr) 0) == 1; }
+            set { PInvoke.SendMessage(handle, PInvoke.BM_SETCHECK, (IntPtr) (value ? 1 : 0), (IntPtr) 0); }
         }
 
 

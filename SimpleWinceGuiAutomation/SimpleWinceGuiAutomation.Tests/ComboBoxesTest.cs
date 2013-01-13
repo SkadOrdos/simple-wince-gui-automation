@@ -1,26 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
-using SimpleWinceGuiAutomation.AppTest;
 
 namespace SimpleWinceGuiAutomation.Tests
 {
     [TestFixture]
     public class ComboBoxesTest : WinceTest
     {
-
-        [Test]
-        public void TestReadAllComboBoxes()
-        {
-            var comboBoxes = application.MainWindow.ComboBoxes.All;
-            Assert.AreEqual(2, comboBoxes.Count);
-        }
-
         [Test]
         public void TestClick()
         {
-            var comboBox = application.MainWindow.ComboBoxes.All[0];
+            WinceComboBox comboBox = application.MainWindow.ComboBoxes.All[0];
             Assert.AreEqual("", comboBox.Text);
-            var items = comboBox.Items;
+            List<string> items = comboBox.Items;
             Assert.AreEqual(3, items.Count);
             Assert.AreEqual("First", items[0]);
             Assert.AreEqual("Second", items[1]);
@@ -36,6 +28,13 @@ namespace SimpleWinceGuiAutomation.Tests
             {
             }
             Assert.AreEqual("First", comboBox.Text);
+        }
+
+        [Test]
+        public void TestReadAllComboBoxes()
+        {
+            List<WinceComboBox> comboBoxes = application.MainWindow.ComboBoxes.All;
+            Assert.AreEqual(2, comboBoxes.Count);
         }
     }
 }

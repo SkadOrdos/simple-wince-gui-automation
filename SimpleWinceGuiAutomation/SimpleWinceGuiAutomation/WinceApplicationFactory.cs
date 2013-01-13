@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Threading;
 
 namespace SimpleWinceGuiAutomation
@@ -9,10 +10,10 @@ namespace SimpleWinceGuiAutomation
     {
         public static WinceApplication StartFromTypeInApplication<T>()
         {
-            var assemblyToTest = typeof(T).Assembly;
-            var theDirectory = Path.GetDirectoryName(assemblyToTest.GetName().CodeBase.Replace("file:///", ""));
-            var applicationName = Path.GetFileName(assemblyToTest.GetName().CodeBase.Replace("file:///", ""));
-            var p = Process.Start(theDirectory + @"\" + applicationName, "");
+            Assembly assemblyToTest = typeof (T).Assembly;
+            string theDirectory = Path.GetDirectoryName(assemblyToTest.GetName().CodeBase.Replace("file:///", ""));
+            string applicationName = Path.GetFileName(assemblyToTest.GetName().CodeBase.Replace("file:///", ""));
+            Process p = Process.Start(theDirectory + @"\" + applicationName, "");
 
             for (int ix = 0; ix < 500; ++ix)
             {

@@ -1,15 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using System.Collections.Generic;
-using System.Text;
 using NUnitLite.Runner;
 
 namespace SimpleWinceGuiAutomation.Tests
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var writer = new StringWriter();
             new TextUI(writer).Execute(new string[0]);
