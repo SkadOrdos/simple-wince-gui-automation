@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SimpleWinceGuiAutomation.Core;
+using SimpleWinceGuiAutomation.Wince;
 
 namespace SimpleWinceGuiAutomation.Components
 {

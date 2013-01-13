@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SimpleWinceGuiAutomation.Core;
 
-namespace SimpleWinceGuiAutomation.Core
+namespace SimpleWinceGuiAutomation.Wince
 {
     internal class WinceComponentsFinder
     {

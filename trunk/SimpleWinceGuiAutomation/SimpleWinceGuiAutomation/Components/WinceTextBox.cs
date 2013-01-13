@@ -1,4 +1,5 @@
 ﻿using System;
+using SimpleWinceGuiAutomation.Wince;
 
 namespace SimpleWinceGuiAutomation.Components
 {

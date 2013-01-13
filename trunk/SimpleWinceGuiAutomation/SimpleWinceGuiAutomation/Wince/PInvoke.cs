@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace SimpleWinceGuiAutomation.Core
+namespace SimpleWinceGuiAutomation.Wince
 {
     internal class PInvoke
     {
