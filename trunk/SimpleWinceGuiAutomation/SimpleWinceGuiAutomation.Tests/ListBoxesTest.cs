@@ -17,11 +17,13 @@ namespace SimpleWinceGuiAutomation.Tests
         public void TestSelect()
         {
             var listBox = application.MainWindow.ListBoxes.All[0];
-            Assert.AreEqual("", listBox.Text);
+            var items = listBox.Items;
+            Assert.AreEqual(2, items.Count);
+            Assert.AreEqual("First", items[0]);
+            Assert.AreEqual("Second", items[1]);
+            Assert.AreEqual(-1, listBox.SelectedItem);
             listBox.Select("First");
-            Assert.AreEqual("First", listBox.Text);
-            listBox.Select("Non existing");
-            Assert.AreEqual("", listBox.Text);
+            Assert.AreEqual(0, listBox.SelectedItem);
         }
     }
 }
