@@ -7,8 +7,7 @@ namespace SimpleWinceGuiAutomation.Wince
 {
     internal class PInvoke
     {
-        #region GetWindowFlags enum
-
+        
         [Flags]
         public enum GetWindowFlags
         {
@@ -20,10 +19,6 @@ namespace SimpleWinceGuiAutomation.Wince
             GW_CHILD = 5,
         }
 
-        #endregion
-
-        #region MemUsageFlags enum
-
         public enum MemUsageFlags
         {
             MEM_COMMIT = 0x1000,
@@ -31,10 +26,6 @@ namespace SimpleWinceGuiAutomation.Wince
             MEM_DECOMMIT = 0x4000,
             MEM_RELEASE = 0x8000
         }
-
-        #endregion
-
-        #region PageAccessFlags enum
 
         [FlagsAttribute]
         public enum PageAccessFlags
@@ -50,8 +41,6 @@ namespace SimpleWinceGuiAutomation.Wince
             PAGE_PHYSICAL = 0x400
         }
 
-        #endregion
-
         public const int GWL_STYLE = (-16);
 
         public static int WM_LBUTTONDOWN = 0x0201;
@@ -65,9 +54,6 @@ namespace SimpleWinceGuiAutomation.Wince
 
         [DllImport("coredll.dll", SetLastError = true)]
         public static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
-
-        [DllImport("coredll.dll", SetLastError = true)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, string lParam);
 
         [DllImport("coredll.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         public static extern int GetClassName(IntPtr hwnd, StringBuilder windowClass, int maxText);
@@ -87,11 +73,6 @@ namespace SimpleWinceGuiAutomation.Wince
         [DllImport("coredll.dll", SetLastError = true)]
         public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
-
-        [DllImport("coredll.dll", CharSet = CharSet.Auto, SetLastError =
-            false, EntryPoint = "SendMessage")]
-        public static extern IntPtr SendRefMessage(IntPtr hWnd, uint Msg, int
-                                                                              wParam, StringBuilder lParam);
 
         public static IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, StringBuilder lParam)
         {
@@ -125,8 +106,6 @@ namespace SimpleWinceGuiAutomation.Wince
         public static extern bool ReadProcessMemory(uint hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, uint nSize,
                                                     ref uint lpNumberOfBytesRead);
 
-        #region Nested type: RECT
-
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
         {
@@ -135,7 +114,5 @@ namespace SimpleWinceGuiAutomation.Wince
             public int Right; // x position of lower-right corner
             public int Bottom; // y position of lower-right corner
         }
-
-        #endregion
     }
 }
