@@ -12,7 +12,7 @@ namespace SimpleWinceGuiAutomation.Tests
         {
             var radios = application.MainWindow.Radios.All;
             Assert.AreEqual(2, radios.Count);
-            Assert.AreEqual("A label", radios[0].Text);
+            Assert.AreEqual("First Radio", radios[0].Text);
         }
         [Test]
         public void TestCheck()
