@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
-using SimpleWinceGuiAutomation.Components;
+﻿using NUnit.Framework;
 
 namespace SimpleWinceGuiAutomation.Tests
 {
@@ -10,15 +8,15 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestList()
         {
-            List<WinceListBox> listBoxes = application.MainWindow.ListBoxes.All;
+            var listBoxes = application.MainWindow.ListBoxes.All;
             Assert.AreEqual(2, listBoxes.Count);
         }
 
         [Test]
         public void TestSelect()
         {
-            WinceListBox listBox = application.MainWindow.ListBoxes.All[0];
-            List<string> items = listBox.Items;
+            var listBox = application.MainWindow.ListBoxes.All[0];
+            var items = listBox.Items;
             Assert.AreEqual(2, items.Count);
             Assert.AreEqual("First", items[0]);
             Assert.AreEqual("Second", items[1]);

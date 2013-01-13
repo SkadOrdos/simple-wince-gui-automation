@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
-using SimpleWinceGuiAutomation.Components;
+﻿using NUnit.Framework;
 
 namespace SimpleWinceGuiAutomation.Tests
 {
@@ -10,8 +8,8 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestCheck()
         {
-            WinceRadio firstRadio = application.MainWindow.Radios.WithText("First Radio");
-            WinceRadio secondRadio = application.MainWindow.Radios.WithText("Second Radio");
+            var firstRadio = application.MainWindow.Radios.WithText("First Radio");
+            var secondRadio = application.MainWindow.Radios.WithText("Second Radio");
             Assert.AreEqual("First Radio", firstRadio.Text);
             Assert.IsTrue(firstRadio.Checked);
             Assert.AreEqual("Second Radio", secondRadio.Text);
@@ -24,7 +22,7 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestReadAllRadios()
         {
-            List<WinceRadio> radios = application.MainWindow.Radios.All;
+            var radios = application.MainWindow.Radios.All;
             Assert.AreEqual(2, radios.Count);
             Assert.AreEqual("First Radio", radios[0].Text);
         }

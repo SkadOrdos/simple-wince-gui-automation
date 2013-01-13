@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
-using SimpleWinceGuiAutomation.Components;
+﻿using NUnit.Framework;
 
 namespace SimpleWinceGuiAutomation.Tests
 {
@@ -11,7 +9,7 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestReadAllLabels()
         {
-            List<WinceLabel> labels = application.MainWindow.Labels.All;
+            var labels = application.MainWindow.Labels.All;
             Assert.AreEqual(1, labels.Count);
             Assert.AreEqual("A label", labels[0].Text);
         }
