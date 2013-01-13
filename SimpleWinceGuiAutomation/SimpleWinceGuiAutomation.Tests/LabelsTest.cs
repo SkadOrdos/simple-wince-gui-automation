@@ -14,5 +14,13 @@ namespace SimpleWinceGuiAutomation.Tests
             label.Text = "New Label Text";
             Assert.AreEqual("New Label Text", label.Text);
         }
+
+        [Test]
+        public void TestReadAllLabels()
+        {
+            var labels = application.MainWindow.Labels.All;
+            Assert.AreEqual(1, labels.Count);
+            Assert.AreEqual("A label", labels[0].Text);
+        }
     }
 }
