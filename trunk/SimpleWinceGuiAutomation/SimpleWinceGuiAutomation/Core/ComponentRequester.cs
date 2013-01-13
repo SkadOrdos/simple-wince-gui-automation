@@ -36,14 +36,9 @@ namespace SimpleWinceGuiAutomation
         {
             List<WinComponent> childs = new WinceComponentsFinder().ListChilds(handle);
             return (from e in childs
-                    where callIsKind(e) && text == e.Text
+                    where isKind(e) && text == e.Text
                     orderby e.Top , e.Left
                     select componentFactory(e.Handle)).ToList();
-        }
-
-        private bool callIsKind(WinComponent e)
-        {
-            return isKind(e);
         }
 
         public TComponent WithText(String text)
