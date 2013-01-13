@@ -6,14 +6,6 @@ namespace SimpleWinceGuiAutomation.Tests
     [TestFixture]
     public class LabelsTest : WinceTest
     {
-        [Test]
-        public void TestClick()
-        {
-            WinceLabel label = application.MainWindow.Labels.WithText("A label");
-            Assert.AreEqual("A label", label.Text);
-            label.Text = "New Label Text";
-            Assert.AreEqual("New Label Text", label.Text);
-        }
 
         [Test]
         public void TestReadAllLabels()

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SimpleWinceGuiAutomation.Components;
 using SimpleWinceGuiAutomation.Core;
 
 namespace SimpleWinceGuiAutomation
 {
-    public class WinceListBox
+    public class WinceListBox : WinceComponent
     {
         private readonly IntPtr ptr;
         private int LB_GETCOUNT = 0x018B;
@@ -15,10 +16,7 @@ namespace SimpleWinceGuiAutomation
         private int LB_GETTEXTLEN = 0x018A;
         private int LB_SETCURSEL = 0x0186;
 
-        public WinceListBox(IntPtr ptr)
-        {
-            this.ptr = ptr;
-        }
+        public WinceListBox(IntPtr ptr) : base(ptr) { }
 
         public int SelectedItem
         {

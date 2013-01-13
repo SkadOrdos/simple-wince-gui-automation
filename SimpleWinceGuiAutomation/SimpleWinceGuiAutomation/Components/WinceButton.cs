@@ -11,5 +11,9 @@ namespace SimpleWinceGuiAutomation
         {
             WindowHelper.Click(Handle);
         }
+        public String Text
+        {
+            get { return WindowHelper.GetText(Handle); }
+        }
     }
 }

@@ -1,31 +1,26 @@
 ﻿using System;
 using SimpleWinceGuiAutomation.Core;
+using SimpleWinceGuiAutomation.Components;
 
 namespace SimpleWinceGuiAutomation
 {
-    public class WinceRadio
+    public class WinceRadio : WinceComponent
     {
-        private readonly IntPtr ptr;
-
-        public WinceRadio(IntPtr ptr)
-        {
-            this.ptr = ptr;
-        }
+        public WinceRadio(IntPtr ptr) : base(ptr) { }
 
         public String Text
         {
-            get { return WindowHelper.GetText(ptr); }
-            set { WindowHelper.SetText(ptr, value); }
+            get { return WindowHelper.GetText(Handle); }
         }
 
         public bool Checked
         {
-            get { return (int) PInvoke.SendMessage(ptr, PInvoke.BM_GETCHECK, (IntPtr) 0x0, (IntPtr) 0) == 1; }
+            get { return (int) PInvoke.SendMessage(Handle, PInvoke.BM_GETCHECK, (IntPtr) 0x0, (IntPtr) 0) == 1; }
         }
 
         public void Click()
         {
-            WindowHelper.Click(ptr);
+            WindowHelper.Click(Handle);
         }
     }
 }

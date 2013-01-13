@@ -1,20 +1,17 @@
 ﻿using System;
+using SimpleWinceGuiAutomation.Components;
 
 namespace SimpleWinceGuiAutomation
 {
-    public class WinceTextBox
+    public class WinceTextBox : WinceComponent
     {
-        private readonly IntPtr ptr;
 
-        public WinceTextBox(IntPtr ptr)
-        {
-            this.ptr = ptr;
-        }
+        public WinceTextBox(IntPtr ptr) : base(ptr) { }
 
         public String Text
         {
-            get { return WindowHelper.GetText(ptr); }
-            set { WindowHelper.SetText(ptr, value); }
+            get { return WindowHelper.GetText(Handle); }
+            set {WindowHelper.SetText(Handle, value);}
         }
     }
 }
