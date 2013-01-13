@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SimpleWinceGuiAutomation.Components;
 using SimpleWinceGuiAutomation.Core;
 
 namespace SimpleWinceGuiAutomation
 {
-    public class WinceComboBox
+    public class WinceComboBox : WinceComponent
     {
-        private readonly IntPtr ptr;
         private int CB_GETCOUNT = 0x0146;
 
 
@@ -15,22 +15,14 @@ namespace SimpleWinceGuiAutomation
         private int CB_GETLBTEXTLEN = 0x149;
         private int CB_SETCURSEL = 0x014E;
 
-        public WinceComboBox(IntPtr ptr)
-        {
-            this.ptr = ptr;
-        }
-
-        public String Text
-        {
-            get { return WindowHelper.GetText(ptr); }
-        }
+        public WinceComboBox(IntPtr ptr) : base(ptr) { }
 
         public List<String> Items
         {
             get
             {
                 var items = new List<string>();
-                IntPtr ptr = PInvoke.SendMessage(this.ptr, CB_GETCOUNT, (IntPtr) 0, (IntPtr) 0);
+                IntPtr ptr = PInvoke.SendMessage(Handle, CB_GETCOUNT, (IntPtr) 0, (IntPtr) 0);
                 for (int i = 0; i < ptr.ToInt32(); i++)
                 {
                     items.Add(GetComboItem(i));
@@ -41,9 +33,9 @@ namespace SimpleWinceGuiAutomation
 
         private string GetComboItem(int index)
         {
-            int size = PInvoke.SendMessage(ptr, CB_GETLBTEXTLEN, new IntPtr(index), new IntPtr(0)).ToInt32();
+            int size = PInvoke.SendMessage(Handle, CB_GETLBTEXTLEN, new IntPtr(index), new IntPtr(0)).ToInt32();
             var ssb = new StringBuilder(size);
-            int getSize = PInvoke.SendMessage(ptr, CB_GETLBTEXT, new IntPtr(index), ssb).ToInt32();
+            int getSize = PInvoke.SendMessage(Handle, CB_GETLBTEXT, new IntPtr(index), ssb).ToInt32();
             return ssb.ToString();
         }
 
@@ -55,7 +47,7 @@ namespace SimpleWinceGuiAutomation
             {
                 if (value == items[i])
                 {
-                    PInvoke.SendMessage(ptr, CB_SETCURSEL, (IntPtr) i, (IntPtr) 0);
+                    PInvoke.SendMessage(Handle, CB_SETCURSEL, (IntPtr) i, (IntPtr) 0);
                     return;
                 }
             }

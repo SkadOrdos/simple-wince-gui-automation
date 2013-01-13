@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 using SimpleWinceGuiAutomation.Core;
 
 namespace SimpleWinceGuiAutomation
 {
-    internal static class WindowHelper
+    public static class WindowHelper
     {
         public static String GetText(IntPtr handle)
         {
@@ -34,7 +35,7 @@ namespace SimpleWinceGuiAutomation
         [DllImport("coredll.dll")]
         private static extern bool GetWindowRect(IntPtr hWnd, out RECT rect);
 
-        public static RECT GetRect(IntPtr handle)
+        private static RECT GetRect(IntPtr handle)
         {
             RECT r;
             if (!GetWindowRect(handle, out r))
@@ -43,17 +44,37 @@ namespace SimpleWinceGuiAutomation
             }
             return r;
         }
-
-        #region Nested type: RECT
-
+        [StructLayout(LayoutKind.Sequential)]
         public struct RECT
         {
-            public int Bottom;
-            public int Left;
-            public int Right;
-            public int Top;
+            public int left;
+            public int top;
+            public int right;
+            public int bottom;
         }
 
-        #endregion
+        public class Location
+        {
+            public int X { get; set; }
+            public int Y { get; set; }
+        }
+
+        public class Size
+        {
+            public int Width { get; set; }
+            public int Height { get; set; }
+        }
+
+        public static Location GetLocation(IntPtr handle)
+        {
+            var rect = GetRect(handle);
+            return new Location { X = rect.left, Y = rect.top };
+        }
+
+        public static Size GetSize(IntPtr handle)
+        {
+            var rect = GetRect(handle);
+            return new Size { Height = rect.bottom - rect.top, Width = rect.right - rect.left };
+        }
     }
 }
