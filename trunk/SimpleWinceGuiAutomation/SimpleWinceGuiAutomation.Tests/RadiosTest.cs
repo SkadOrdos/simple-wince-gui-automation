@@ -6,6 +6,14 @@ namespace SimpleWinceGuiAutomation.Tests
     [TestFixture]
     public class RadiosTest : WinceTest
     {
+
+        [Test]
+        public void TestReadAllRadios()
+        {
+            var radios = application.MainWindow.Radios.All;
+            Assert.AreEqual(2, radios.Count);
+            Assert.AreEqual("A label", radios[0].Text);
+        }
         [Test]
         public void TestCheck()
         {

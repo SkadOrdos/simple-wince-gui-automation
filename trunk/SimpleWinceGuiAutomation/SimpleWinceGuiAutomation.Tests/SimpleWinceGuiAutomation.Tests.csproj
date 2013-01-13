@@ -62,13 +62,13 @@
     <Compile Include="ButtonsTest.cs" />
     <Compile Include="CheckBoxesTest.cs" />
     <Compile Include="ComboBoxesTest.cs" />
+    <Compile Include="ContainersTest.cs" />
     <Compile Include="ListBoxesTest.cs" />
     <Compile Include="RadiosTest.cs" />
     <Compile Include="LabelsTest.cs" />
     <Compile Include="TextBoxesTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestComponents.cs" />
     <Compile Include="WinceTest.cs" />
   </ItemGroup>
   <ItemGroup>

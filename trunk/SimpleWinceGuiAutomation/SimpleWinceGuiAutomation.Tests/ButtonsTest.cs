@@ -6,7 +6,17 @@ namespace SimpleWinceGuiAutomation.Tests
     [TestFixture]
     public class ButtonsTest : WinceTest
     {
-        //[Test]
+
+        [Test]
+        public void TestReadAllButtons()
+        {
+            var buttons = application.MainWindow.Buttons.All;
+            Assert.AreEqual(2, buttons.Count);
+            Assert.AreEqual("Bouton1", buttons[0].Text);
+            Assert.AreEqual("OtherButton", buttons[1].Text);
+        }
+
+        [Test]
         public void TestClick()
         {
             var button = application.MainWindow.Buttons.WithText("OtherButton");

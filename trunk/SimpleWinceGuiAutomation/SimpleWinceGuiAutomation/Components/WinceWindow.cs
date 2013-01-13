@@ -44,7 +44,7 @@ namespace SimpleWinceGuiAutomation
         {
             get 
             {
-                return new ComponentRequester<WinceButton>(ptr => new WinceButton(ptr), e => e.Class.ToLower().Contains("button") && !isCheckBox(e), handle);
+                return new ComponentRequester<WinceButton>(ptr => new WinceButton(ptr), e => e.Class.ToLower().Contains("button") && !isCheckBox(e) && !isRadio(e), handle);
             }
         }
 
