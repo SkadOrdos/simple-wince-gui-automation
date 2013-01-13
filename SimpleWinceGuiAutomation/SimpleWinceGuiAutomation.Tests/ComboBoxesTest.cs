@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using NUnit.Framework;
-using SimpleWinceGuiAutomation.Components;
 
 namespace SimpleWinceGuiAutomation.Tests
 {
@@ -11,9 +9,9 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestClick()
         {
-            WinceComboBox comboBox = application.MainWindow.ComboBoxes.All[0];
+            var comboBox = application.MainWindow.ComboBoxes.All[0];
             Assert.AreEqual("", comboBox.Text);
-            List<string> items = comboBox.Items;
+            var items = comboBox.Items;
             Assert.AreEqual(3, items.Count);
             Assert.AreEqual("First", items[0]);
             Assert.AreEqual("Second", items[1]);
@@ -34,7 +32,7 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestReadAllComboBoxes()
         {
-            List<WinceComboBox> comboBoxes = application.MainWindow.ComboBoxes.All;
+            var comboBoxes = application.MainWindow.ComboBoxes.All;
             Assert.AreEqual(2, comboBoxes.Count);
         }
     }

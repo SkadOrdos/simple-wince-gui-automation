@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
-using SimpleWinceGuiAutomation.Components;
+﻿using NUnit.Framework;
 
 namespace SimpleWinceGuiAutomation.Tests
 {
@@ -10,7 +8,7 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestClick()
         {
-            WinceTextBox button = application.MainWindow.TextBoxes.WithText("Premier");
+            var button = application.MainWindow.TextBoxes.WithText("Premier");
             Assert.AreEqual("Premier", button.Text);
             button.Text = "Other";
             Assert.AreEqual("Other", button.Text);
@@ -19,7 +17,7 @@ namespace SimpleWinceGuiAutomation.Tests
         [Test]
         public void TestReadAllTextBoxes()
         {
-            List<WinceTextBox> textBoxes = application.MainWindow.TextBoxes.All;
+            var textBoxes = application.MainWindow.TextBoxes.All;
             Assert.AreEqual(2, textBoxes.Count);
             Assert.AreEqual("Premier", textBoxes[0].Text);
             Assert.AreEqual("Second", textBoxes[1].Text);
