@@ -75,7 +75,6 @@
     <Compile Include="Wince\WindowHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\Core\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />

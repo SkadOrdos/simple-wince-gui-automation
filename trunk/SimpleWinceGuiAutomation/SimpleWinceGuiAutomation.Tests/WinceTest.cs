@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SimpleWinceGuiAutomation.AppTest;
+using SimpleWinceGuiAutomation.Components;
 
 namespace SimpleWinceGuiAutomation.Tests
 {

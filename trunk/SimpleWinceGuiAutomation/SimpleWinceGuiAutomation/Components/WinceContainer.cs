@@ -1,14 +1,9 @@
 ﻿using System;
 
-namespace SimpleWinceGuiAutomation
+namespace SimpleWinceGuiAutomation.Components
 {
-    public class WinceContainer
+    public class WinceContainer : WinceComponent
     {
-        private readonly IntPtr ptr;
-
-        public WinceContainer(IntPtr ptr)
-        {
-            this.ptr = ptr;
-        }
+        public WinceContainer(IntPtr ptr) : base(ptr) { }
     }
 }

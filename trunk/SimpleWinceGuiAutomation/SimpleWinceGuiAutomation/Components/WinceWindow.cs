@@ -1,7 +1,7 @@
 ﻿using System;
 using SimpleWinceGuiAutomation.Core;
 
-namespace SimpleWinceGuiAutomation
+namespace SimpleWinceGuiAutomation.Components
 {
     public class WinceWindow
     {
@@ -16,10 +16,7 @@ namespace SimpleWinceGuiAutomation
         {
             get
             {
-                return new ComponentRequester<WinceButton>(ptr => new WinceButton(ptr),
-                                                           e =>
-                                                           e.Class.ToLower().Contains("button") && !isCheckBox(e) &&
-                                                           !isRadio(e), handle);
+                return new ComponentRequester<WinceButton>(ptr => new WinceButton(ptr), isButton, handle);
             }
         }
 
@@ -32,9 +29,13 @@ namespace SimpleWinceGuiAutomation
         {
             get
             {
-                return new ComponentRequester<WinceTextBox>(ptr => new WinceTextBox(ptr),
-                                                            e => e.Class.ToLower().Contains("edit"), handle);
+                return new ComponentRequester<WinceTextBox>(ptr => new WinceTextBox(ptr), isTextBox, handle);
             }
+        }
+
+        private static bool isTextBox(WinComponent e)
+        {
+            return e.Class.ToLower().Contains("edit");
         }
 
         public ComponentRequester<WinceComboBox> ComboBoxes
@@ -83,6 +84,11 @@ namespace SimpleWinceGuiAutomation
             int BS_AUTOCHECKBOX = 0x3;
             style = style & BS_TYPEMASK;
             return (style == BS_AUTOCHECKBOX || style == BS_CHECKBOX);
+        }
+
+        private static Boolean isButton(WinComponent e)
+        {
+            return e.Class.ToLower().Contains("button") && !isCheckBox(e) && !isRadio(e);
         }
 
         private static Boolean isRadio(WinComponent component)

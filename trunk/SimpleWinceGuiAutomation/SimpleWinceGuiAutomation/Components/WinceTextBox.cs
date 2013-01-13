@@ -1,7 +1,6 @@
 ﻿using System;
-using SimpleWinceGuiAutomation.Components;
 
-namespace SimpleWinceGuiAutomation
+namespace SimpleWinceGuiAutomation.Components
 {
     public class WinceTextBox : WinceComponent
     {
