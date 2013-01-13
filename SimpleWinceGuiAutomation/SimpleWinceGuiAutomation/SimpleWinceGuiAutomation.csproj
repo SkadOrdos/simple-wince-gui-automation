@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\WinceComboBox.cs" />
+    <Compile Include="Components\WinceComponent.cs" />
     <Compile Include="Components\WinceContainer.cs" />
     <Compile Include="Components\WinceLabel.cs" />
     <Compile Include="Components\WinceListBox.cs" />

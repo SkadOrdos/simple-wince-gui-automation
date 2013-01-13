@@ -12,7 +12,7 @@ namespace SimpleWinceGuiAutomation.Tests
             WinceCheckBox checkBox = application.MainWindow.CheckBoxes.WithText("My checkbox");
             Assert.AreEqual("My checkbox", checkBox.Text);
             Assert.IsFalse(checkBox.Checked);
-            checkBox.Checked = true;
+            checkBox.Click();
             Assert.IsTrue(checkBox.Checked);
         }
 

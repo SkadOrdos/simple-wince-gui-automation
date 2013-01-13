@@ -1,28 +1,21 @@
 ﻿using System;
+using SimpleWinceGuiAutomation.Components;
 using SimpleWinceGuiAutomation.Core;
 
 namespace SimpleWinceGuiAutomation
 {
-    public class WinceCheckBox
+    public class WinceCheckBox : WinceComponent
     {
-        private readonly IntPtr handle;
-
-        public WinceCheckBox(IntPtr handle)
-        {
-            this.handle = handle;
-        }
+        public WinceCheckBox(IntPtr handle) : base(handle) { }
 
         public bool Checked
         {
-            get { return (int) PInvoke.SendMessage(handle, PInvoke.BM_GETCHECK, (IntPtr) 0x0, (IntPtr) 0) == 1; }
-            set { PInvoke.SendMessage(handle, PInvoke.BM_SETCHECK, (IntPtr) (value ? 1 : 0), (IntPtr) 0); }
+            get { return (int) PInvoke.SendMessage(Handle, PInvoke.BM_GETCHECK, (IntPtr) 0x0, (IntPtr) 0) == 1; }
         }
 
-
-        public String Text
+        public void Click()
         {
-            get { return WindowHelper.GetText(handle); }
-            set { WindowHelper.SetText(handle, value); }
+            WindowHelper.Click(Handle);
         }
     }
 }
