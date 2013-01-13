@@ -28,5 +28,10 @@ namespace SimpleWinceGuiAutomation.Components
                 return WindowHelper.GetLocation(Handle);
             }
         }
+
+        public bool Enabled
+        {
+            get { return PInvoke.IsWindowEnabled(Handle); }
+        }            
     }
 }
